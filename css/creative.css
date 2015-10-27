@@ -13,7 +13,7 @@ body {
 }
 
 body {
-    background: #F7F7F7;
+    background: #F7F7F7 url("../img/bg_pattern.png");
     color:#333;
 }
 
@@ -196,7 +196,11 @@ header {
     width: 100%;
     min-height: 50%;
     text-align: center;
-    padding-top: 150px;
+    padding-top: 95px;
+}
+.logo {
+    margin-bottom: 20px;
+    width: 120px;
 }
 
 @media(min-width:768px) {
