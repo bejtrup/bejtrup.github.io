@@ -251,6 +251,17 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
+    <script type="text/javascript">
+        var a = location.href; 
+
+        if (a.indexOf("?") >= 0) {
+            var b = a.substring(a.indexOf("?")+1);
+            window.location.href = "kvdapp://"+b;
+        }
+
+        
+    </script>
+
 </body>
 
 </html>
