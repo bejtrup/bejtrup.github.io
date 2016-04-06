@@ -253,10 +253,11 @@
 
     <script type="text/javascript">
         var a = location.href; 
-
+        console.log(a);
         if (a.indexOf("?") >= 0) {
             var b = a.substring(a.indexOf("?")+1);
-            window.location.href = "kvdapp://"+b;
+            $("<a href='kvdapp://"+b+"'></a>").click(); 
+            console.log(b);
         }
 
         
