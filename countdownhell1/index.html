@@ -1,38 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Countdown Hell 1</title>
-
-    <!-- Bootstrap Core CSS -->
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> -->
-
-    <!-- Custom Fonts -->
-    <!-- <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css"> -->
-    <!-- Custom CSS -->
-    <!-- <link rel="stylesheet" href="css/creative.css" type="text/css"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    img {
+      width: 25%;
+    }
+  </style>
 </head>
 
-<body>
-
-    <div class="head">
-      <div class="container">
-        <h1>Bejt.dk</h1>
-        <h2>hell</h2>
+<body style="background: black url(bg.gif);     background-size: cover; background-position: center;">
+  <div class="d-flex container text-white" style="height: 100vh">
+    <div class="row my-auto">
+      <div id="day" class="col-12 col-md-6">
       </div>
-    </div>
-    <div class="body">
-      <div class="container">
-test
-
+      <div id="hou" class="col-12 col-md-6">
       </div>
+      <div id="min" class="col-12 col-md-6">
+      </div>
+      <div id="sec" class="col-12 col-md-6">
+      </div>
+
     </div>
+  </div>
+
+  <script>
+    function makeNumArray(number) {
+      var output = [],
+        sNumber = number.toString();
+      for (var i = 0, len = sNumber.length; i < len; i += 1) {
+        output.push(+sNumber.charAt(i));
+      }
+      return output;
+    }
+
+
+    var countDownDate = new Date("jun 16, 2021 16:00:00").getTime();
+    var x = setInterval(function () {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      var dayhtml = ''
+      var houhtml = ''
+      var minhtml = ''
+      var sechtml = ''
+      makeNumArray(days).map(num => { dayhtml += `<img src="flamingFonts/${num}.gif">` })
+      dayhtml += `<img src="flamingFonts/dage.gif">`;
+      makeNumArray(hours).map(num => { houhtml += `<img src="flamingFonts/${num}.gif">` })
+      houhtml += `<img src="flamingFonts/timer.gif">`;
+      makeNumArray(minutes).map(num => { minhtml += `<img src="flamingFonts/${num}.gif">` })
+      minhtml += `<img src="flamingFonts/min.gif">`;
+      makeNumArray(seconds).map(num => { sechtml += `<img src="flamingFonts/${num}.gif">` })
+      sechtml += `<img src="flamingFonts/sek.gif">`;
+
+      document.getElementById("day").innerHTML = dayhtml
+      document.getElementById("hou").innerHTML = houhtml
+      document.getElementById("min").innerHTML = minhtml
+      document.getElementById("sec").innerHTML = sechtml
+
+    }, 1000);
+  </script>
 
 </body>
 
